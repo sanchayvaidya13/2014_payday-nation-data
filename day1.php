@@ -2,8 +2,6 @@
 
 require("connect.php");
 
-//$write=mysql_query("INSERT INTO people VALUES ('','','','','')");
-//$update=mysql_query("UPDATE people SET firstname='ABC' WHERE id='3'");
 $extract=mysql_query("SELECT * FROM people");
 
 echo"
@@ -20,5 +18,16 @@ echo"</select>
 <input type='text' name='updatename' value='Enter new first name'><br>
 <input type='submit' name='button' value='Update data'>
 </form>";
+
+<?php
+
+class PostsController extends AppController {
+    public $helpers = array('Html', 'Form');
+
+    public function index() {
+        $this->set('posts', $this->Post->find('all'));
+    }
+}
+?>
 
 ?>
